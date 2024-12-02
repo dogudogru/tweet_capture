@@ -1,4 +1,11 @@
 import streamlit as st
+import os
+import subprocess
+
+# Install Playwright browsers if not already installed
+if not os.path.exists("/home/appuser/.cache/ms-playwright"):
+    subprocess.run(["playwright", "install", "chromium"], check=True)
+
 from playwright.sync_api import sync_playwright, TimeoutError
 
 st.title("Twitter Post Screenshot Generator")
